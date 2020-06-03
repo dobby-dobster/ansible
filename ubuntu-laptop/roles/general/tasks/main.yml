@@ -1,0 +1,14 @@
+- name: Run the equivalent of "apt-get update" as a separate step
+  apt:
+    update_cache: yes
+  become: yes
+
+- name: Upgrade all packages to the latest version
+  apt: 
+    name: "*"
+    state: latest
+  become: yes
+
+- name: Install htop
+  apt: name=htop
+  become: yes
