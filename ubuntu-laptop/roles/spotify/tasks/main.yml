@@ -1,0 +1,12 @@
+- name: Add an apt key by id from a keyserver
+  apt_key:
+    keyserver: keyserver.ubuntu.com
+    id: 36A1D7869245C8950F966E92D8576A8BA88D21E9
+
+- name: Add spotify repository
+  apt_repository:
+    repo: deb http://repository.spotify.com stable non-free
+    state: present
+
+- name: Install spotify-client
+  apt: name=spotify-client state=latest

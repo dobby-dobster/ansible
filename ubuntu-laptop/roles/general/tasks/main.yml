@@ -16,7 +16,6 @@
        - vim
   become: yes
 
-
 - name: Create .bashrc.d directory
   file:
     path: /home/"{{ user }}"/.bashrc.d
