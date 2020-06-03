@@ -9,6 +9,15 @@
     state: latest
   become: yes
 
-- name: Install htop
-  apt: name=htop
+- name: Install useful packages
+  apt: name={{item}} state=latest
+  with_items:
+       - htop
+       - vim
   become: yes
+
+
+- name: Create .bashrc.d directory
+  file:
+    path: /home/"{{ user }}"/.bashrc.d
+    state: directory

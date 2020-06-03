@@ -2,6 +2,6 @@
   become: true
 
   roles:
-    - general
-    - docker
-    - virtualbox
+    - { role: general, tags: ['general'] }
+    - { role: docker, tags: ['docker'] }
+    - { role: virtualbox, tags: ['virtualbox'] }
