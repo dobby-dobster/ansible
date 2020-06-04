@@ -1,10 +1,3 @@
-- name: Install aptitude using apt
-  apt: name=aptitude state=latest update_cache=yes force_apt_get=yes
-
-- name: Install required system packages
-  apt: name={{ item }} state=latest update_cache=yes
-  loop: [ 'apt-transport-https', 'ca-certificates', 'curl', 'software-properties-common', 'python3-pip', 'virtualenv', 'python3-setuptools']
-
 - name: Add Docker GPG apt Key
   apt_key:
     url: https://download.docker.com/linux/ubuntu/gpg
@@ -18,12 +11,36 @@
 - name: Update apt and install docker-ce
   apt: update_cache=yes name=docker-ce state=latest
 
-- name: Install Docker Module for Python
-  pip:
-    name: docker
-
 - name: Add user to docker group
   user:
     name: '{{ user }}'
     groups: docker
     append: yes
+
+- name: Create custom docker network
+  docker_network:
+    name: docker
+    ipam_config:
+      - subnet: 10.0.0.0/24
+        gateway: 10.0.0.1
+        iprange: 10.0.0.0/24
+
+- name: pull portainer image
+  docker_image:
+    name: portainer/portainer
+    source: pull
+
+- name: Create portainer container
+  docker_container:
+    name: portainer
+    image: portainer/portainer
+    state: started
+    restart_policy: always
+    restart: no
+    networks:
+      - name: docker
+        ipv4_address: 10.0.0.2
+    ports:
+     - "9000:9000"
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock

@@ -1,4 +1,4 @@
-- name: Run the equivalent of "apt-get update" as a separate step
+- name: Run the equivalent of "apt-get update"
   apt:
     update_cache: yes
   become: yes
@@ -14,9 +14,5 @@
   with_items:
        - htop
        - vim
+       - git
   become: yes
-
-- name: Create .bashrc.d directory
-  file:
-    path: /home/"{{ user }}"/.bashrc.d
-    state: directory

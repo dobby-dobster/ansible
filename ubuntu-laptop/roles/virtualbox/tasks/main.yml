@@ -1,3 +1,4 @@
 - name: Install virtualbox
-  apt: name={{ item }} state=latest update_cache=yes
-  loop: [ 'virtualbox' ]
+  apt: 
+    name: virtualbox-qt
+    state: latest

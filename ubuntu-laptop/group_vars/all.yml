@@ -1,2 +1,3 @@
 ---
 user: tom
+jenkins_image: dobbydobster/jenkins:version2.0

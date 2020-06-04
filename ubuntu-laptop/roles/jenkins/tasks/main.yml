@@ -1,0 +1,16 @@
+
+- name: Create jenkins container
+  docker_container:
+    name: jenkins
+    image: "{{ jenkins_image }}"
+    state: started
+    restart: no
+    restart_policy: always
+    networks:
+    - name: docker
+      ipv4_address: 10.0.0.3
+    ports:
+     - "8080:8080"
+     - "50000:50000"
+    volumes:
+      - /var/jenkins_home
