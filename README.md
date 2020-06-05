@@ -1,10 +1,14 @@
 # My Linux Mint Build
 
-#1 Install updates via Update Manager
+Setting up base Linux Mint installation.
 
-#2 Run stage1 steps
+#1 Install operating system using standard steps, i.e bootable USB
 
-#3 Run ansible code to install required packages and other configuration
+#2 Install updates via 'Update Manager'
+
+#3 Run stage1 steps
+
+#4 Run ansible code to install required packages and carry out other configuration
 
 
 
