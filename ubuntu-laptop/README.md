@@ -1,8 +1,9 @@
 Contains ansible code to configure my (Mint) Ubuntu laptop with required packages, configuration etc. This includes installing Docker and some containers.
 
-Contains setup are:
+Containers setup are:
 - Jenkins
 - Portainer
+- Watchtower
 
 **Usage**
 
