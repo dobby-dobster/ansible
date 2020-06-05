@@ -21,6 +21,7 @@
        - htop
        - vim
        - git
+       - vagrant
   become: yes
 
 - name: Add an apt key by id from a keyserver
