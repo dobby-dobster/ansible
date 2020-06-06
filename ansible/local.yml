@@ -7,3 +7,4 @@
     - { role: virtualbox, tags: ['virtualbox'] }
     - { role: spotify, tags: ['spotify'] }
     - { role: jenkins, tags: ['jenkins', 'docker'] }
+    - { role: customise_ui, tags: ['ui'] }

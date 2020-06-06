@@ -1,0 +1,16 @@
+# - name: Add ppa:snwh/ppa
+#   apt_repository:
+#     repo: ppa:oranchelo/oranchelo-icon-theme
+
+- name: Install Icons
+  apt: 
+    name: oranchelo-icon-theme
+    state: latest
+  become: yes
+
+- name: Install Plank
+  apt: 
+    name: plank
+    update_cache: yes
+    state: latest
+  become: yes
